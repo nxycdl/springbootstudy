@@ -21,7 +21,7 @@ public class GrinfoController {
 
     @GetMapping("/")
     public String serverStatus() {
-        return "server is Start";
+        return "Oracle mybatis 和Mysql 的相同,只需要注意配置文件的驱动名称";
     }
 
     @GetMapping("/name/{name}")
