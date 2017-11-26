@@ -36,4 +36,22 @@ public class GrinfoController {
         return grinfoService.getGrinfoByRoute(route);
     }
 
+    @GetMapping("/insert")
+    public void insert() {
+        grinfoService.insert("138", "1", "1", "A", "132", "xxx");
+    }
+
+    @GetMapping("/insert2")
+    public void insert2() {
+        Grinfo grinfo = new Grinfo();
+        grinfo.setName("159");
+        grinfo.setSex("1");
+        grinfo.setTel("12354");
+        grinfo.setRoute("A");
+        grinfo.setLxr("1234345");
+        grinfo.setBz("bz");
+        grinfoService.insert2(grinfo);
+    }
+
+
 }

@@ -51,4 +51,12 @@ public class Grinfo {
     public void setBz(String bz) {
         this.bz = bz;
     }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public void setRoute(String route) {
+        this.route = route;
+    }
 }
