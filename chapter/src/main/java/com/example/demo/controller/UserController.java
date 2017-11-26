@@ -27,6 +27,7 @@ public class UserController {
         list.add(new User("username", "name"));
         list.add(new User("username1", "name1"));
         list.add(new User("username2", "name2"));
+        list = userService.findAll();
         return list;
     }
 
@@ -42,7 +43,6 @@ public class UserController {
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
     @GetMapping(value = "/{id}")
     public User getUser(@PathVariable Long id) {
-        System.out.println(id);
         User user = userService.findByid(id);
         System.out.println(user);
         return user;
