@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,5 +48,39 @@ public class UserController {
         System.out.println(user);
         return user;
 
+    }
+
+    @ApiOperation(value = "获取用户详细信息", notes = "根据url的id来获取用户详细信息")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
+    @GetMapping(value = "/del/{id}")
+    public String delUser(@PathVariable Long id) {
+        userService.delete(id);
+        System.out.println("success");
+        return "suceess";
+    }
+
+
+    @ApiOperation(value = "先插入后查找，测试缓存", notes = "先插入后查找，测试缓存")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
+    @GetMapping(value = "/UserInsSel")
+    public List<User> UserInsSel() {
+        User user = new User();
+        user.setUsername("xxxx");
+        user.setPassword("12");
+        user.setEmail("xxx");
+        user.setAmount(new BigDecimal(0));
+        user.setBalance(new BigDecimal(0));
+        user.setPoint(0);
+        user.setMember_rank_id(0);
+        user.setRegister_ip("123");
+        user.setIs_enabled(0);
+        user.setIs_locked(0);
+        user.setLogin_failure_count(0);
+        user.setDelete_flag(0);
+        userService.insert(user);
+
+        List<User> list = userService.findAll();
+        System.out.println(list.size());
+        return list;
     }
 }

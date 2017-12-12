@@ -11,4 +11,8 @@ public interface UserService {
     public User findByid(Long id) ;
 
     public List<User> findAll();
+
+    public void insert(User user);
+
+    public void delete(Long id);
 }
