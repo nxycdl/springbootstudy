@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.services.HelloService;
+import com.example.demo.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,8 @@ public class HelloController {
         sList[2] = title;
         sList[3] = "随机字符串 ${random.value}" + random_String;
         sList[4] = "随机字符串 ${random.int ,long, int(10), int[10,20] }" + random_String;
+        sList[5] = Constant.map.get("340").toString();
+        sList[6] = Constant.map.get("510").toString();
         return sList;
     }
 
